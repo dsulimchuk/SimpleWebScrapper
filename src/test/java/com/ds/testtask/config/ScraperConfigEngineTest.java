@@ -12,7 +12,7 @@ public class ScraperConfigEngineTest {
 
     @org.junit.Test
     public void testConfig1() throws Exception {
-        String test = "http://www.cnn.com Greece,default -v -w -c -e";
+        String[] test = {"http://www.cnn.com", "Greece,default", "-v" ,"-w", "-c", "-e"};
         ScraperConfig conf = ScraperConfig.builder().build();
         conf = ScraperConfigEngine.getConfig(conf, test);
 
@@ -32,7 +32,7 @@ public class ScraperConfigEngineTest {
 
     @org.junit.Test
     public void testConfig2() throws Exception {
-        String test = "http://www.cnn.com Greece,default -v -w -e";
+        String[] test = {"http://www.cnn.com", "Greece,default", "-v", "-w", "-e"};
         ScraperConfig conf = ScraperConfig.builder().build();
         conf = ScraperConfigEngine.getConfig(conf, test);
 
@@ -51,7 +51,7 @@ public class ScraperConfigEngineTest {
 
     @org.junit.Test
     public void testConfig3() throws Exception {
-        String test = "http://www.cnn.com Greece,default,test1,test2 -v -w -e";
+        String[] test = {"http://www.cnn.com", "Greece,default,test1,test2", "-v", "-w", "-e"};
         ScraperConfig conf = ScraperConfig.builder().build();
         conf = ScraperConfigEngine.getConfig(conf, test);
 

@@ -12,21 +12,14 @@ import java.util.regex.Pattern;
  * Created by ds on 01/08/15.
  */
 public class ScraperConfigEngine {
-    public static ScraperConfig getConfig(ScraperConfig config, String args) {
-        Scanner scanner = new Scanner(args).useDelimiter("\\s+");
-        String path = scanner.next();
-        String words = scanner.next();
-        String flagsString = scanner.nextLine();
-
-        config.setPath(path);
-        config.setWords(new HashSet<>(Arrays.asList(words.split(","))));
+    public static ScraperConfig getConfig(ScraperConfig config, String[] args) {
+        config.setPath(args[0]);
+        config.setWords(new HashSet<>(Arrays.asList(args[1].split(","))));
 
 
         Set<String> flags = new HashSet<>();
-        Pattern flagsPattern = Pattern.compile("(\\-\\w+)");
-        Matcher m = flagsPattern.matcher(flagsString);
-        while(m.find()) {
-            flags.add(m.group());
+        for(int i = 2; i < args.length; i++) {
+            flags.add(args[i]);
         }
 
         for(Field f : config.getClass().getDeclaredFields()) {

@@ -24,7 +24,7 @@ public class EngineImplTest {
     private ScraperConfig conf;
     @Before
     public void setUp() throws Exception {
-        String test = "http://www.cnn.com Greece,dies,plane,die -v -w -c -e";
+        String[] test = {"http://www.cnn.com",  "Greece,dies,plane,die",  "-v",  "-w",  "-c",  "-e"};
         conf = ScraperConfigEngine.getConfig(new ScraperConfig(), test);
     }
 
