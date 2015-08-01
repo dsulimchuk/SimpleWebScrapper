@@ -5,7 +5,7 @@ import java.util.Set;
 /**
  * Created by ds on 01/08/15.
  */
-public class MainConfig {
+public class ScraperConfig {
 
     private String path;
 
@@ -23,14 +23,14 @@ public class MainConfig {
     @OptionalParam("-e")
     private boolean extractSentences;
 
-    public MainConfig() {
+    public ScraperConfig() {
     }
 
     /** Main constructor
      * @param path Path to web resource or text file
      * @param words Words to find
      */
-    public MainConfig(String path, Set<String> words) {
+    public ScraperConfig(String path, Set<String> words) {
         this.path = path;
         this.words = words;
     }
@@ -40,7 +40,7 @@ public class MainConfig {
     }
 
     //Builder
-    static class MainConfigBuilder {
+    public static class MainConfigBuilder {
         private String path;
         private Set<String> words;
         private boolean verbosity;
@@ -78,8 +78,8 @@ public class MainConfig {
             return this;
         }
 
-        public MainConfig build() {
-            MainConfig conf = new MainConfig(path, words);
+        public ScraperConfig build() {
+            ScraperConfig conf = new ScraperConfig(path, words);
             conf.setVerbosity(verbosity);
             conf.setCountWords(countWords);
             conf.setCountCharacters(countCharacters);
@@ -142,7 +142,7 @@ public class MainConfig {
 
     @Override
     public String toString() {
-        return "MainConfig{" +
+        return "ScraperConfig{" +
                 "path='" + path + '\'' +
                 ", words=" + words +
                 ", verbosity=" + verbosity +
@@ -157,7 +157,7 @@ public class MainConfig {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MainConfig config = (MainConfig) o;
+        ScraperConfig config = (ScraperConfig) o;
 
         if (verbosity != config.verbosity) return false;
         if (countWords != config.countWords) return false;

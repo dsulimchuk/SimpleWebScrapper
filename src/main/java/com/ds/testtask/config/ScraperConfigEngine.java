@@ -1,10 +1,6 @@
 package com.ds.testtask.config;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression;
-
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -15,8 +11,8 @@ import java.util.regex.Pattern;
 /**
  * Created by ds on 01/08/15.
  */
-public class ConfigEngine {
-    public static MainConfig getConfig(MainConfig config, String args) {
+public class ScraperConfigEngine {
+    public static ScraperConfig getConfig(ScraperConfig config, String args) {
         Scanner scanner = new Scanner(args).useDelimiter("\\s+");
         String path = scanner.next();
         String words = scanner.next();
